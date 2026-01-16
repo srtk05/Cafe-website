@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Morya's Cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR MUST BE INSIDE BODY -->
+  <header class="navbar">
+    <div class="logo">☕ Morya's Cafe</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li> 
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- CART SECTION -->
+  <section class="cart">
+    <h2>🛒 Your Cart</h2>
+
+    <div id="cart-items"></div>
+
+    <h3 id="total-price"></h3>
+
+    <form id="order-form">
+  <h3>Customer Details</h3>
+
+  <input type="text" id="customerName" placeholder="Your Name" required>
+
+  <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
+
+  <select id="orderType" required>
+    <option value="">Select Order Type</option>
+    <option value="Dine In">Dine In</option>
+    <option value="Takeaway">Takeaway</option>
+  </select>
+
+  <button type="submit">Place Order</button>
+</form>
+
+  </section>
+
+  <script src="js/cart.js"></script>
+
+  <h1>Welcome to Big Cup Cafe</h1>
+
+</body>
+</html>

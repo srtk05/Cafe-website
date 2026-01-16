@@ -1,0 +1,185 @@
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #2b1d0e;
+}
+
+.logo {
+  color: #fff;
+  font-size: 39px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #f3c892;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 80vh;
+  background-image: url("../assets/images/coffee.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  color: #ddd;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: #f3c892;
+  color: #2b1d0e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background-color: #e0b878;
+}
+/* ===== GALLERY ===== */
+.gallery {
+  padding: 50px;
+  text-align: center;
+}
+
+.gallery h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #2b1d0e;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== MENU ===== */
+.menu {
+  padding: 40px;
+}
+
+.menu h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu-category {
+  margin-bottom: 30px;
+}
+
+.menu-category h3 {
+  border-bottom: 2px solid #c7a17a;
+  padding-bottom: 5px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.menu-item button {
+  background: #c7a17a;
+  border: none;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+/* ===== CART ===== */
+.cart {
+  padding: 40px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.cart button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #c7a17a;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== ORDER FORM ===== */
+#order-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+#order-form input,
+#order-form select {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+#order-form button {
+  background: #c7a17a;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}

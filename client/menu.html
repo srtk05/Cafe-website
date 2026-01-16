@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Morya's Cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR MUST BE INSIDE BODY -->
+  <header class="navbar">
+    <div class="logo">☕ Morya's Cafe</div>
+    <nav>
+      <ul class="nav-links">
+      <li><a href="index.html">Home</a></li> 
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Welcome to Morya's Cafe</h1>
+  
+  <section class="menu">
+  <h2>☕ Our Menu</h2>
+
+  <div class="menu-category">
+    <h3>Coffee</h3>
+
+    <div class="menu-item">
+      <span>Cold Coffee</span>
+      <span>₹120</span>
+      <button onclick="addToCart('Cold Coffee', 120)">Add</button>
+    </div>
+
+    <div class="menu-item">
+      <span>Cappuccino</span>
+      <span>₹150</span>
+      <button onclick="addToCart('Cappuccino', 150)">Add</button>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Snacks</h3>
+
+    <div class="menu-item">
+      <span>Veg Sandwich</span>
+      <span>₹90</span>
+      <button onclick="addToCart('Veg Sandwich', 90)">Add</button>
+    </div>
+  </div>
+</section>
+
+<script src="js/menu.js"></script>
+
+</body>
+</html>
