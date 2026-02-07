@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morya's Cafe</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="page-cart">
 
   <!-- NAVBAR MUST BE INSIDE BODY -->
   <header class="navbar">
@@ -14,43 +15,92 @@
     <nav>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li> 
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="cart.html">Cart</a></li>
-        <li><a href="#">About Us</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="cart.html" class="active">Cart</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div class="nav-social">
+      <a href="https://g.page/r/CXvhmiYXkYxLEBE/review" target="_blank" aria-label="Leave a Review">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l2.9 6h6.6l-5.3 3.9l2 6.2L12 14.8L5.8 18.1l2-6.2L2.5 8h6.6L12 2z"/>
+        </svg>
+      </a>
+      <a href="https://maps.app.goo.gl/LHHuGhY6jAkrpiGC8" target="_blank" aria-label="View on Google Maps">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 3a4 4 0 1 0 0 8a4 4 0 0 0 0-8z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/moryas_cafe?igsh=MW5xNHAwM3h5cGw0Mg==" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2a1 1 0 0 1 0-2z"/>
+        </svg>
+      </a>
+    </div>
   </header>
   <!-- CART SECTION -->
-  <section class="cart">
-    <h2>🛒 Your Cart</h2>
+<div class="cart-wrapper">
 
-    <div id="cart-items"></div>
+  <h2 class="cart-title">Your Cart</h2>
 
-    <h3 id="total-price"></h3>
+  <div class="order-mode" role="tablist">
+    <button type="button" class="mode-btn active" data-mode="fresh">Fresh Order</button>
+    <button type="button" class="mode-btn" data-mode="append">Add to Old Order</button>
+  </div>
+  <p id="append-note" class="append-only">Enter your table number (1-9) to add items to an existing order.</p>
 
-    <form id="order-form">
-  <h3>Customer Details</h3>
+  <div id="cart-items"></div>
 
-  <input type="text" id="customerName" placeholder="Your Name" required>
+  <div class="cart-summary">
+    <h3><span id="total-price">0</span></h3>
+  </div>
 
-  <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
+  <form id="order-form" class="order-form">
+    <input type="text" id="customerName" class="fresh-only" placeholder="Your Name" required />
+    <input type="text" id="mobileNumber" class="fresh-only" placeholder="Mobile Number" />
+    <input type="number" id="tableNumber" placeholder="Table Number (1-9)" min="1" max="9" required />
+    
+    <select id="orderType" class="fresh-only" required>
+      <option value="">Select Order Type</option>
+      <option value="Dine In">Dine In</option>
+      <option value="Takeaway">Takeaway</option>
+    </select>
 
-  <select id="orderType" required>
-    <option value="">Select Order Type</option>
-    <option value="Dine In">Dine In</option>
-    <option value="Takeaway">Takeaway</option>
-  </select>
+    <button type="submit" id="submit-btn" class="place-order-btn">
+      Place Order
+    </button>
+  </form>
 
-  <button type="submit">Place Order</button>
-</form>
-
-  </section>
+</div>
 
   <script src="js/cart.js"></script>
 
-  <h1>Welcome to Big Cup Cafe</h1>
+<script>
+  // Enter animation
+  window.addEventListener("load", function () {
+    document.body.classList.add("page-loaded");
+  });
+
+  // Exit animation
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      // Ignore empty links or external links
+      if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("page-exit");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 20);
+    });
+  });
+</script>
+
 
 </body>
 </html>

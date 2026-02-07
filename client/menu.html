@@ -2,60 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Morya's Cafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morya's Cafe - Menu</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="page-menu">
 
-  <!-- NAVBAR MUST BE INSIDE BODY -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">☕ Morya's Cafe</div>
     <nav>
       <ul class="nav-links">
-      <li><a href="index.html">Home</a></li> 
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html">Home</a></li> 
+        <li><a href="menu.html" class="active">Menu</a></li>
         <li><a href="cart.html">Cart</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div class="nav-social">
+      <a href="https://g.page/r/CXvhmiYXkYxLEBE/review" target="_blank" aria-label="Leave a Review">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l2.9 6h6.6l-5.3 3.9l2 6.2L12 14.8L5.8 18.1l2-6.2L2.5 8h6.6L12 2z"/>
+        </svg>
+      </a>
+      <a href="https://maps.app.goo.gl/LHHuGhY6jAkrpiGC8" target="_blank" aria-label="View on Google Maps">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 3a4 4 0 1 0 0 8a4 4 0 0 0 0-8z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/moryas_cafe?igsh=MW5xNHAwM3h5cGw0Mg==" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2a1 1 0 0 1 0-2z"/>
+        </svg>
+      </a>
+    </div>
   </header>
 
-  <h1>Welcome to Morya's Cafe</h1>
-  
-  <section class="menu">
-  <h2>☕ Our Menu</h2>
+  <!-- PAGE HEADER -->
+  <section class="menu-header">
+    <h1>Our Delicious Menu</h1>
+  </section>
 
-  <div class="menu-category">
-    <h3>Coffee</h3>
-
-    <div class="menu-item">
-      <span>Cold Coffee</span>
-      <span>₹120</span>
-      <button onclick="addToCart('Cold Coffee', 120)">Add</button>
+  <!-- CATEGORY BUTTONS -->
+  <div id="menu-categories" class="menu-categories">
+    <div class="time-limit-row">
+      <div class="category-group">
+        <h3>7:00 AM – 11:30 AM</h3>
+        <div class="category-group-buttons">
+          <button class="category-btn" data-category="breakfast">Breakfast</button>
+        </div>
+      </div>
+      <div class="category-group">
+        <h3>11:30 AM – 5:00 PM</h3>
+        <div class="category-group-buttons">
+          <button class="category-btn" data-category="thali">Thali</button>
+        </div>
+      </div>
     </div>
-
-    <div class="menu-item">
-      <span>Cappuccino</span>
-      <span>₹150</span>
-      <button onclick="addToCart('Cappuccino', 150)">Add</button>
+    <div class="whole-day-row">
+      <h3>Whole Day</h3>
+      <div class="category-group-buttons">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="coffee">Coffee</button>
+        <button class="category-btn" data-category="chai">Chai</button>
+        <button class="category-btn" data-category="drinks">Milk and Desi Drinks</button>
+        <button class="category-btn" data-category="juice">Juice</button>
+        <button class="category-btn" data-category="shakes">Shakes</button>
+        <button class="category-btn" data-category="quick-bites">Quick Bites</button>
+        <button class="category-btn" data-category="maggi">Maggi</button>
+        <button class="category-btn" data-category="south-indian">South Indian</button>
+        <button class="category-btn" data-category="paratha">Paratha</button>
+        <button class="category-btn" data-category="dhapate">Dhapate</button>
+        <button class="category-btn" data-category="thalipith">Thalipith</button>
+        <button class="category-btn" data-category="rice">Rice</button>
+        <button class="category-btn" data-category="fries-nuggets">Fries | Nuggets | Kababs</button>
+        <button class="category-btn" data-category="upwas-special">Upwas Special</button>
+        <button class="category-btn" data-category="sandwiches">Sandwiches</button>
+        <button class="category-btn" data-category="pizzas">Pizzas</button>
+        <button class="category-btn" data-category="burgers">Burgers</button>
+        <button class="category-btn" data-category="wraps-rolls">Wraps & Rolls</button>
+        <button class="category-btn" data-category="momos-noodles">Momos | Noodles</button>
+        <button class="category-btn" data-category="bhakri-chapati">Bhakri & Chapati Special</button>
+        <button class="category-btn" data-category="special-poli">Special Poli</button>
+        <button class="category-btn" data-category="todays-special">Today's Special</button>
+        <button class="category-btn" data-category="offer-zone">Offer Zone</button>
+      </div>
     </div>
   </div>
 
-  <div class="menu-category">
-    <h3>Snacks</h3>
-
-    <div class="menu-item">
-      <span>Veg Sandwich</span>
-      <span>₹90</span>
-      <button onclick="addToCart('Veg Sandwich', 90)">Add</button>
-    </div>
+  <!-- MENU ITEMS -->
+  <div id="menu-items" class="menu-items">
+    <!-- Loaded by menu.js -->
   </div>
-</section>
 
-<script src="js/menu.js"></script>
+  <div id="footer-sentinel"></div>
+
+  <script src="js/menu.js"></script>
+ <script>
+  // Enter animation
+  window.addEventListener("load", function () {
+    document.body.classList.add("page-loaded");
+  });
+
+  // Exit animation
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      // Ignore empty links or external links
+      if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("page-exit");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 20);
+    });
+  });
+
+  // Hide floating cart button when footer is visible
+  const floatingBtn = document.querySelector(".floating-cart-btn");
+  const footer = document.querySelector("footer");
+  const sentinel = footer || document.getElementById("footer-sentinel");
+  if (floatingBtn && sentinel && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          floatingBtn.classList.toggle("hide", entry.isIntersecting);
+        });
+      },
+      { root: null, threshold: 0.05 }
+    );
+    observer.observe(sentinel);
+  }
+</script>
+
+  <a href="cart.html" class="floating-cart-btn">Go to Cart</a>
+
 
 </body>
 </html>

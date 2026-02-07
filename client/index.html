@@ -2,44 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morya's Cafe</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
-  <!-- NAVBAR MUST BE INSIDE BODY -->
+  <div class="page-wrapper">
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">☕ Morya's Cafe</div>
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li> 
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="cart.html">Cart</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="index.html" class="active">Home</a></li> 
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div class="nav-social">
+      <a href="https://g.page/r/CXvhmiYXkYxLEBE/review" target="_blank" aria-label="Leave a Review">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l2.9 6h6.6l-5.3 3.9l2 6.2L12 14.8L5.8 18.1l2-6.2L2.5 8h6.6L12 2z"/>
+        </svg>
+      </a>
+      <a href="https://maps.app.goo.gl/LHHuGhY6jAkrpiGC8" target="_blank" aria-label="View on Google Maps">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 3a4 4 0 1 0 0 8a4 4 0 0 0 0-8z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/moryas_cafe?igsh=MW5xNHAwM3h5cGw0Mg==" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2a1 1 0 0 1 0-2z"/>
+        </svg>
+      </a>
+    </div>
   </header>
+  <!-- HERO SECTION -->
+<section class="hero">
 
-  <h1>Welcome to Morya's Cafe</h1>
+  <div class="hero-wrapper">
 
+    <!-- MAIN CARD -->
+    <div class="hero-card">
+      <div class="hero-content">
+        <h1>Today's Special Menu</h1>
+        <p>Tap to see today's special items on our menu.</p>
+        <a href="menu.html#todays-special">
+          <button class="hero-btn">View Today's Special</button>
+        </a>
+      </div>
+    </div>
 
-<!-- hero SECTION -->
-  <section class="hero">
-  <div class="hero-content">
-    <h1>Fresh Coffee. Cozy Vibes.</h1>
-    <p>Your perfect cup, brewed with love.</p>
+    <!-- OFFER CARD -->
+    <!-- OFFER CARD -->
+    <div class="offer-card">
+      <h2>Today's Special Offer</h2>
+      <div class="offer-box">
+        <!-- DO NOT CHANGE ID -->
+        <img id="offerImage" src="assets/images/banner.jpg" alt="Cafe Offer">
+      </div>
+      <p id="offerUpdatedAt" style="font-size:12px;color:#777;margin-top:6px;"></p>
+    </div>
 
-    <a href="menu.html">
-      <button class="hero-btn">View Menu</button>
-    </a>
   </div>
+
 </section>
 
+<!-- OFFER IMAGE LIGHTBOX -->
+<div id="offerLightbox" class="offer-lightbox" aria-hidden="true">
+  <div class="offer-lightbox-backdrop"></div>
+  <div class="offer-lightbox-content" role="dialog" aria-modal="true" aria-label="Offer image">
+    <button class="offer-lightbox-close" type="button" aria-label="Close offer image">×</button>
+    <img id="offerLightboxImage" src="" alt="Cafe Offer enlarged">
+  </div>
+</div>
 
 
+  <!-- FOOTER START -->
+  <footer class="footer">
+    <div class="footer-container">
 
+    <div class="footer-box">
+      <h3>☕ Morya's Cafe</h3>
+      <p>Fresh coffee. Cozy vibes. Made with ❤️</p>
+    </div>
+    
+    <div class="footer-box">
+      <h4>Visit Us</h4>
+      <a href="https://maps.app.goo.gl/LHHuGhY6jAkrpiGC8" target="_blank">📍 View on Google Maps</a>
+      <a href="https://g.page/r/CXvhmiYXkYxLEBE/review" target="_blank">⭐ Leave a Review</a>
+    </div>
+    
+    <div class="footer-box">
+      <h4>Connect With Us</h4>
+      <a href="https://www.instagram.com/moryas_cafe?igsh=MW5xNHAwM3h5cGw0Mg==" target="_blank">📸 Instagram</a>
+      <a href="https://wa.me/919370501800" target="_blank">💬 WhatsApp</a>
+      <a href="tel:+91 9370501800">📞 Call Us</a>
+    </div>
+    
+  </div>
+  
+  <div class="footer-bottom">
+    © 2026 Morya's Cafe | All Rights Reserved
+  </div>
+</footer>
+<!-- FOOTER END -->
+<script>
+  // Enter animation
+  window.addEventListener("load", function () {
+    document.body.classList.add("page-loaded");
+  });
+  
+  // Exit animation
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      // Ignore empty links or external links
+      if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("page-exit");
+      
+      setTimeout(() => {
+        window.location.href = href;
+      }, 20);
+    });
+  });
+</script>
+</div>
+<!-- Morya Assistant -->
+<div id="morya-assistant">
+  
+  <div class="morya-avatar" onclick="toggleMorya()">
+    <img src="assets/images/morya-boy.png" alt="Morya">
+  </div>
+  
+  <div class="morya-chat" id="moryaChat">
+    <div class="morya-header">
+      👦 Morya
+      <span onclick="toggleMorya()">✖</span>
+    </div>
+    
+    <div class="morya-body">
+      <p id="morya-message">
+        Namaste! I’m Morya ☕ <br>
+        Welcome to Morya’s Cafe! <br><br>
+        How can I help you?
+      </p>
+      
+      <div class="morya-options">
+        <button onclick="goToPage('menu.html')">🍽 View Menu</button>
+        <button onclick="goToPage('cart.html')">🛒 Order Now</button>
+        <button onclick="openMap()">📍 Find Us</button>
+        <button onclick="openWhatsApp()">💬 WhatsApp</button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<script>
+  let scrollTimer;
+    const avatar = document.querySelector(".morya-avatar img");
+
+    window.addEventListener("scroll", () => {
+      avatar.style.animationPlayState = "paused";
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        avatar.style.animationPlayState = "running";
+      }, 150);
+    });
+function toggleMorya() {
+  const chat = document.getElementById("moryaChat");
+  chat.style.display = chat.style.display === "block" ? "none" : "block";
+}
+
+function goToPage(page) {
+  window.location.href = page;
+}
+
+function openMap() {
+  window.open("https://maps.app.goo.gl/LHHuGhY6jAkrpiGC8", "_blank");
+}
+
+function openWhatsApp() {
+  window.open("https://wa.me/919370501800", "_blank");
+}
+
+// Auto open after 2 seconds
+setTimeout(() => {
+  document.getElementById("moryaChat").style.display = "block";
+}, 2000);
+</script>
+
+<script src="js/home.js"></script>
 </body>
 </html>
