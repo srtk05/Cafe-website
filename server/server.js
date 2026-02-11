@@ -13,6 +13,35 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET is required. Set it in your .env file.");
 }
 
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
+async function ensureBootstrapAdmin() {
+  if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
+    console.log("Bootstrap admin skipped: ADMIN_EMAIL/ADMIN_PASSWORD not set");
+    return;
+  }
+
+  if (ADMIN_PASSWORD.length < 8) {
+    console.warn("Bootstrap admin skipped: ADMIN_PASSWORD must be at least 8 characters");
+    return;
+  }
+
+  try {
+    const existingAdmin = await Admin.findOne({ email: ADMIN_EMAIL });
+    if (existingAdmin) {
+      console.log("Bootstrap admin: existing admin found");
+      return;
+    }
+
+    const hashedPassword = await bcrypt.hash(ADMIN_PASSWORD, 10);
+    await Admin.create({ email: ADMIN_EMAIL, password: hashedPassword });
+    console.log("Bootstrap admin created successfully");
+  } catch (error) {
+    console.error("Bootstrap admin error:", error);
+  }
+}
+
 const app = express();
 
 // Basic security headers
@@ -61,7 +90,10 @@ app.use(express.static(path.join(__dirname, "../client")));
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
+  .then(async () => {
+    console.log("MongoDB connected");
+    await ensureBootstrapAdmin();
+  })
   .catch(err => console.error("MongoDB error:", err));
 
 // Routes

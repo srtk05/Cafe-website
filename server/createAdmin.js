@@ -15,7 +15,7 @@ async function createAdmin() {
   try {
     const username = "admin";              // change if needed
     const email = "admin@moryacafe.com";   // REQUIRED FIELD
-    const plainPassword = "1234";          // ⚠️ Change to strong password
+    const plainPassword = "srtk123@";          // ⚠️ Change to strong password
 
     // Check if admin already exists
     const existingAdmin = await Admin.findOne({ username });
