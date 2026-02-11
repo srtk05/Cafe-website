@@ -84,28 +84,50 @@ async function loadMenu() {
 }
 
 async function addItem() {
-  if (!itemName.value || !itemPrice.value || !itemCategory.value) {
+  const nameEl = document.getElementById("itemName");
+  const priceEl = document.getElementById("itemPrice");
+  const categoryEl = document.getElementById("itemCategory");
+
+  if (!nameEl || !priceEl || !categoryEl) {
+    alert("Menu form is not available");
+    return;
+  }
+
+  const name = nameEl.value.trim();
+  const category = categoryEl.value.trim();
+  const price = Number(priceEl.value);
+
+  if (!name || !category || !Number.isFinite(price) || price <= 0) {
     return alert("Fill all fields");
   }
 
-  await fetch("/api/menu", {
+  const res = await fetch("/api/menu", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "Authorization": adminToken
     },
     body: JSON.stringify({
-      name: itemName.value,
-      price: itemPrice.value,
-      category: itemCategory.value
+      name,
+      price,
+      category
     })
   });
 
-  itemName.value = "";
-  itemPrice.value = "";
-  itemCategory.value = "";
+  if (handleAuthFailure(res)) return;
 
-  loadMenu();
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    alert(data.message || "Failed to add item");
+    return;
+  }
+
+  nameEl.value = "";
+  priceEl.value = "";
+  categoryEl.value = "";
+
+  await loadMenu();
+  alert("Menu item added");
 }
 
 async function deleteMenu(id) {
