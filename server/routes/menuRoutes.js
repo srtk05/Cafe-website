@@ -11,10 +11,18 @@ router.get("/", async (req, res) => {
 // ADD MENU ITEM (Admin)
 router.post("/", require("../middleware/auth"), async (req, res) => {
   const { name, price, category, available = true } = req.body || {};
-  if (!name || !category || typeof price !== "number") {
+  const parsedPrice = Number(price);
+
+  if (!name || !category || !Number.isFinite(parsedPrice) || parsedPrice <= 0) {
     return res.status(400).json({ message: "Invalid menu item" });
   }
-  const item = new Menu({ name: name.trim(), price, category: category.trim().toLowerCase(), available });
+
+  const item = new Menu({
+    name: name.trim(),
+    price: parsedPrice,
+    category: category.trim().toLowerCase(),
+    available
+  });
   await item.save();
   res.json({ success: true });
 });
